@@ -1,0 +1,51 @@
+MODEL:
+
+
+TRAIN:
+  train_data_dir: [
+    'E:\test\TSRN\TextZoom\src\dataset\train1',
+    'E:\test\TSRN\TextZoom\src\dataset\train2',
+  ]
+  batch_size: 32
+  width: 128
+  height: 32
+  epochs: 50
+  cuda: True
+  ngpu: 1
+  workers: 0
+  resume: ''
+  ckpt_dir: './ckpt/'
+  voc_type: 'all' #'digits lower upper all'
+  saveInterval: 200
+  displayInterval: 100 #display loss
+  adadelta: False
+  lr: 0.0005
+  adam: True
+  beta1: 0.5
+  manualSeed: 1234
+  max_len: 100
+  keep_ratio: False
+  down_sample_scale: 2
+
+  VAL:
+    val_data_dir: [
+      'E:\test\TSRN\TextZoom\src\dataset\test\hard',
+      'E:\test\TSRN\TextZoom\src\dataset\test\easy',
+      'E:\test\TSRN\TextZoom\src\dataset\test\medium',
+    ]
+    n_vis: 10
+    vis_dir: 'demo'
+    valInterval: 500 #-1, val at the end of epoch
+    rec_pretrained: 'demo.pth.tar'
+    moran_pretrained: 'moran.pth'
+    crnn_pretrained: 'crnn.pth'
+
+TEST:
+  checkpoint: ''
+  test_data_dir: ['E:\test\TSRN\TextZoom\src\dataset\test\easy'
+  ]
+
+CONVERT:
+  image_dir:
+  lmdb_dir:
+  n_convert: 10
